@@ -183,6 +183,6 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 # idea folder, uncomment if you don't need it
-# .idea
+.idea
 /trocr-base-printed-captcha-ocr/
 /trocr-small-printed-captcha-ocr/
