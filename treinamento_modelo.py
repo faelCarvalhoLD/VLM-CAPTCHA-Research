@@ -25,9 +25,9 @@ test_dataframe_dataset['text'] = test_dataframe_dataset['file_name'].map(lambda 
 print(test_dataframe_dataset)
 
 # VALORES BASICOS E CONSTANTES
-MODEL_CKPT = "microsoft/trocr-base-printed"
-MODEL_NAME = MODEL_CKPT.split("/")[-1] + "-captcha-ocr"
-NUM_OF_EPOCHS = 3
+MODEL_CKPT = "microsoft/trocr-small-printed"
+MODEL_NAME = MODEL_CKPT.split("/")[-1].replace("printed", "captcha")
+NUM_OF_EPOCHS = 9
 
 # USANDO GPU NVIDIA DEDICADA SE DISPONÍVEL
 if torch.cuda.is_available():
@@ -91,8 +91,8 @@ args = Seq2SeqTrainingArguments(
     predict_with_generate=True,
     eval_strategy="epoch",
     save_strategy="epoch",
-    per_device_train_batch_size=8,
-    per_device_eval_batch_size=8,
+    per_device_train_batch_size=24,
+    per_device_eval_batch_size=24,
     logging_first_step=True,
     hub_private_repo=False,
     push_to_hub=False
